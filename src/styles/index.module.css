@@ -1,0 +1,22 @@
+.imageWrapper {
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+.profileImage {
+    border-radius: 50%;
+    border: 2px solid #dededf;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+.statusIcon {
+    border-radius: 50%;
+    border: 1px solid #dededf;
+    position: absolute;
+    top: 230px;
+    left: 260px;
+    width: 37px;
+}
