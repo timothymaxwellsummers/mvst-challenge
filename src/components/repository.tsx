@@ -7,8 +7,10 @@ const languageColors = require('../styles/colors.json');
 
 export default function RepositoryComponent({ repository }: { repository: Repository }) {
 
+    const originalDate = new Date(repository.lastUpdated);
+
     //formats the date to a more readable format
-    const formattedDate = repository.lastUpdated.toLocaleDateString("en-US", {
+    const formattedDate = originalDate.toLocaleDateString("en-US", {
         year: "numeric",
         month: "short",
         day: "numeric",

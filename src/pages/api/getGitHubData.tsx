@@ -6,7 +6,7 @@ const getGitHubData = async (req: NextApiRequest, res: NextApiResponse) => {
     try {
 
         // Enter any valid GitHub username here
-        const githubUsername = 'fabianh001';
+        const githubUsername = 'Antonwy';
 
         // Make a GET request to GitHub's REST API to fetch basic profile information
         const profileResponse = await axios.get(`https://api.github.com/users/${githubUsername}`);

@@ -11,6 +11,7 @@ import { GitHubData } from '../components/types';
 export default function Home() {
 
   const [gitHubData, setGitHubData] = useState<GitHubData>();
+  const [searchQuery, setSearchQuery] = useState('');
 
   const getGitHubData = async () => {
     const res = await fetch('/api/getGitHubData')
@@ -18,6 +19,11 @@ export default function Home() {
     console.log("client", githubData);
     setGitHubData(githubData);
   }
+
+  // Filter repositories based on the search query
+  const filteredRepositories = gitHubData?.repositories.filter(repository =>
+    repository.name.toLowerCase().includes(searchQuery.toLowerCase())
+  ) || [];
 
   return (
     <>
@@ -30,7 +36,7 @@ export default function Home() {
         </Box>
         <Box sx={{ flexGrow: 1 }}>
           <Box sx={{ display: 'flex', gap: ['4px', '4px', '4px'], pt: 3, pb: 2 }}>
-            <TextInput aria-label="Search" name="search" placeholder="Find a repository..." sx={{ mr: 3 }} width="100%" />
+            <TextInput aria-label="Search" name="search" placeholder="Find a repository..." value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} sx={{ mr: 3 }} width="100%" />
             <Button trailingIcon={TriangleDownIcon}>
               Type
             </Button>
@@ -44,9 +50,9 @@ export default function Home() {
           <ActionList.Divider />
           {gitHubData &&
             <>
-              {gitHubData.repositories.map((repository, index) => (
-                <div className={indexStyles.element}>
-                  <RepositoryComponent key={index} repository={repository} />
+              {filteredRepositories.map((repository, index) => (
+                <div className={indexStyles.element} key={index}>
+                  <RepositoryComponent repository={repository} />
                 </div>
               ))}
             </>
