@@ -1,12 +1,22 @@
 import { Button, ActionList, Heading, Text, Box } from "@primer/react"
-import { PeopleIcon, OrganizationIcon, LocationIcon, MailIcon } from '@primer/octicons-react'
+import { PeopleIcon, OrganizationIcon, LocationIcon, MailIcon, ArrowLeftIcon } from '@primer/octicons-react'
 import profileStyles from "../styles/profile.module.css";
 import twitter from '../../public/twitter.png'
 import statusIconMock from '../../public/statusIconMock.png'
 import { Profile } from '../components/types';
+import { useRouter } from 'next/router';
+
 
 
 export default function ProfileComponent({ profile }: { profile: Profile }) {
+
+  const router = useRouter();
+
+  const handleTryAgainClick = () => {
+    // Redirect back to the index page
+    router.push('/');
+  };
+
   return (
     <>
       <Box sx={{ display: 'flex', flexDirection: ["row", "row", "column", "column"], alignItems: ["center", "center", "flex-start", "flex-start"], gap: ['4px', '4px', '12px', '12px'] }}>
@@ -33,10 +43,12 @@ export default function ProfileComponent({ profile }: { profile: Profile }) {
           <div style={{ display: 'flex', alignItems: 'center' }}>
             <img src={twitter.src} alt="twitter logo" style={{ width: "16px" }} />
             &nbsp;&nbsp;
-            {"@"+profile.twitterUsername}
+            {"@" + profile.twitterUsername}
           </div>
         </Text>
-      )}      <ActionList.Divider />
+      )}
+      <ActionList.Divider />
+      <Button block variant='primary' onClick={handleTryAgainClick} sx={{ mt: 3 }} leadingIcon={ArrowLeftIcon}>Try a different username</Button>
     </>
   )
 }

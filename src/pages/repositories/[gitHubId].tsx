@@ -80,9 +80,8 @@ export default function Repositories() {
               </Box>
               <ActionList.Divider />
               {filteredRepositories.length === 0 && (
-                <Heading sx={{fontSize: "1.5em"}}>{gitHubData.profile.name} doesn't have any public repositories yet.</Heading>
-              )
-              }
+                <Heading sx={{fontSize: "1.5em"}}>{gitHubData.profile.name} does&apos;t have any public repositories yet.</Heading>
+              )}
               {filteredRepositories.map((repository, index) => (
                 <div className={indexStyles.element} key={index}>
                   <RepositoryComponent repository={repository} />
