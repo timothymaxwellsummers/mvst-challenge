@@ -3,14 +3,14 @@ import { TriangleDownIcon, StarIcon, LawIcon } from '@primer/octicons-react'
 import { Repository } from '../components/types';
 import repoStyles from "../styles/repo.module.css";
 
-//stores all github colors for languages
+// Stores all GitHub colors for languages
 const languageColors = require('../styles/colors.json');
 
 export default function RepositoryComponent({ repository }: { repository: Repository }) {
 
     const originalDate = new Date(repository.lastUpdated);
 
-    //formats the date to a more readable format
+    // Formats the date to a more readable format
     const formattedDate = originalDate.toLocaleDateString("en-US", {
         year: "numeric",
         month: "short",
@@ -44,7 +44,7 @@ export default function RepositoryComponent({ repository }: { repository: Reposi
     )
 }
 
-
+// Function to create a colored circle for the repository language
 function getColorCircle(color: any) {
     if (!color) {
         return null;

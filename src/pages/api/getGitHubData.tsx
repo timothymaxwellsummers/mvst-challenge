@@ -53,7 +53,7 @@ const getGitHubData = async (req: NextApiRequest, res: NextApiResponse) => {
         console.log("server", githubData);
         res.status(200).json(githubData);
     } catch (error) {
-        // Handle errors gracefully
+        // Handle errors gracefully :P
         res.status(500).json({ error: 'Unable to fetch GitHub profile data' });
     }
 };

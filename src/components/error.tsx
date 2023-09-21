@@ -6,6 +6,7 @@ import { MarkGithubIcon, ArrowLeftIcon } from '@primer/octicons-react'
 export default function Error({error}: {error: string}) {
   const router = useRouter();
 
+  // Function to handle the "Try a different username" button click
   const handleTryAgainClick = () => {
     // Redirect back to the index page
     router.push('/');

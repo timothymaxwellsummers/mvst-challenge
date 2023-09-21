@@ -9,16 +9,20 @@ export default function Home() {
   const [gitHubId, setGitHubId] = useState('');
   const [emptyAlert, setEmptyAlert] = useState(false);
 
+  // Function to handle changes in the GitHub username input field
   const handleGitHubIdChange = (e: any) => {
     setGitHubId(e.target.value);
   };
 
+  // Function to navigate to the repositories page
   const handleRepositoriesPageNavigation = () => {
     // Use Next.js router to navigate to the reositories page with dynamic route
     if (gitHubId === '') {
+      // Display an empty username alert if the input is empty
       setEmptyAlert(true);
       return;
     }
+    // Navigate to the repositories page with the entered GitHub username
     router.push(`/repositories/${gitHubId}`);
   };
 

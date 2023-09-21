@@ -10,7 +10,6 @@ import { GitHubData } from '../../components/types';
 import { useRouter } from 'next/router';
 
 export default function Repositories() {
-
   const router = useRouter()
   const { gitHubId } = router.query;
   const [gitHubData, setGitHubData] = useState<GitHubData>();
@@ -32,16 +31,19 @@ export default function Repositories() {
         body: JSON.stringify({ gitHubId }),
       });
       if (res.ok) {
+        // If the response is successful, parse JSON and set data
         const githubData = await res.json();
         console.log("client", githubData);
         setGitHubData(githubData);
         setError(null); // Clear any previous error
       } else {
+        // Handle cases where response is not OK (e.g., user not found)
         setError('Either there was an error or this user does not exist :/');
       }
     } catch (error) {
-      console.error('Error fetching GitHub data:', error);
-      setError('An unexpected error occurred');
+      // Handle unexpected errors during data fetching
+      console.error('Error fetching GitHub data', error);
+      setError('An unexpected error occurred :/');
     }
   }
 
@@ -53,6 +55,7 @@ export default function Repositories() {
   return (
     <>
       {error ? (
+        // Display an error component if there's an error
         <ErrorComponent error={error} />
       ) : gitHubData?.profile && gitHubData?.repositories && (
         <>
@@ -60,6 +63,7 @@ export default function Repositories() {
           <Box sx={{ display: 'flex', gap: ['24px', '24px', '24px'], px: [3, 3, 5, 5], pt: 2, pb: 5, flexDirection: ["column", "column", "row", "row"] }}>
             <Box sx={{ pt: 5, minWidth: ['100%', '100%', '256px', '296px'] }} width={['220px', '256px', '296px']}>
               {gitHubData &&
+                // Render the profile component with fetched data
                 <ProfileComponent profile={gitHubData.profile} />
               }
             </Box>
@@ -79,11 +83,13 @@ export default function Repositories() {
                 </Box>
               </Box>
               <ActionList.Divider />
-              {filteredRepositories.length === 0 && (
+              {gitHubData.repositories.length === 0 && (
+                // Display a message if there are no repositories
                 <Heading sx={{fontSize: "1.5em"}}>{gitHubData.profile.name} does&apos;t have any public repositories yet.</Heading>
               )}
               {filteredRepositories.map((repository, index) => (
                 <div className={indexStyles.element} key={index}>
+                  {/* Render the repository component for each filtered repository */}
                   <RepositoryComponent repository={repository} />
                 </div>
               ))}

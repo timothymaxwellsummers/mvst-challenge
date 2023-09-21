@@ -12,6 +12,7 @@ export default function ProfileComponent({ profile }: { profile: Profile }) {
 
   const router = useRouter();
 
+  // Function to handle the "Try a different username" button click
   const handleTryAgainClick = () => {
     // Redirect back to the index page
     router.push('/');

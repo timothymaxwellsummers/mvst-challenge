@@ -1,6 +1,7 @@
 import Document, { DocumentContext } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
 
+// This is needed in order to use styled-components (react-primer) with Next.js ssr - source: https://github.com/vercel/next.js/tree/canary/examples/with-styled-components
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
     const sheet = new ServerStyleSheet()
