@@ -16,6 +16,12 @@ export interface Repository {
     githubUrl: string;
     followers: number;
     following: number;
+    company: string | null;
+    location: string | null;
+    email: string | null;
+    twitterUsername: string | null;
+    bio: string | null;
+    repos: number;
   }
   
   // Type for the entire GitHub data response

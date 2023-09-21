@@ -1,0 +1,16 @@
+.descriptionWrapper {
+    width: 70%;
+    padding-right: 1rem
+}
+
+.tagsWrapper {
+    display: flex; 
+    align-items: center; 
+    margin-top: 1rem
+}
+
+@media only screen and (max-width: 950px) {
+    .descriptionWrapper {
+        width: 90%;
+    }
+}

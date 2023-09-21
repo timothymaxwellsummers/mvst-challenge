@@ -4,16 +4,17 @@ import { GitHubData, Profile, Repository } from '../../components/types';
 
 const getGitHubData = async (req: NextApiRequest, res: NextApiResponse) => {
     try {
-
-        // Enter any valid GitHub username here
-        const githubUsername = 'Antonwy';
+        
+        // Extract the GitHub ID from the request body
+        const body = JSON.parse(req.body);
+        const { gitHubId } = body;
 
         // Make a GET request to GitHub's REST API to fetch basic profile information
-        const profileResponse = await axios.get(`https://api.github.com/users/${githubUsername}`);
-        const reposResponse = await axios.get(`https://api.github.com/users/${githubUsername}/repos`);
+        const profileResponse = await axios.get(`https://api.github.com/users/${gitHubId}`);
+        const reposResponse = await axios.get(`https://api.github.com/users/${gitHubId}/repos`);
 
         // Extract the relevant data from the response
-        const { login, name, avatar_url, html_url, followers, following } = profileResponse.data;
+        const { login, name, avatar_url, html_url, followers, following, company, location, email, bio, twitter_username, public_repos } = profileResponse.data;
 
         // Extract the repositories data from the repositories response
         const repositoriesData: [Repository] = reposResponse.data.map((repo: any) => ({
@@ -35,6 +36,12 @@ const getGitHubData = async (req: NextApiRequest, res: NextApiResponse) => {
             githubUrl: html_url,
             followers,
             following,
+            company,
+            location,
+            email,
+            bio,
+            twitterUsername: twitter_username,
+            repos: public_repos,
         };
 
         const githubData: GitHubData = {
