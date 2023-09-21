@@ -44,6 +44,7 @@ export default function Home() {
           <ActionList.Divider />
           <Button block variant='primary' onClick={handleRepositoriesPageNavigation} sx={{ mt: 3 }}>View Repositories</Button>
         </Box>
+        <a href='https://github.com/timothymaxwellsummers/mvst-challenge' target="_blank" style={{textDecoration: "none"}}><Button size='large' sx={{ width: ["90%", "80%", "350px", "400px"], mt: 3, }} leadingIcon={MarkGithubIcon}>Find this project on GitHub</Button></a>
       </Box>
     </Box>
   )

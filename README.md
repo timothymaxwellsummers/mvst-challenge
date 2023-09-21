@@ -2,7 +2,7 @@
 
 The challenge was to replicate GitHub's repository list section. Checkout my implementation here: [Github Repositories](https://mvst-challenge-one.vercel.app/)
 
-##Description
+## Description
 
 I thought it would be a fun challenge to get it as close to github itself as possible. So i utilized GitHub's react/primer library to use their components. This resulted in a pretty excat clone. Other than that I utilized all their REST Api to fetch all available data. I added the option to add a custom GitHub username to make it a bit more interactive. Heres a list of the achieved objectives:
 
