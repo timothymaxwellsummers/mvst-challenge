@@ -28,9 +28,9 @@ Install dependencies with npm
   npm install
 ```
 List of some dependencies:
-- [primer/react] (https://primer.style/react/getting-started)
-- [axios] (https://www.npmjs.com/package/axios)
-- [storybook] (https://storybook.js.org/docs/react/get-started/install/)
+- [primer/react](https://primer.style/react/getting-started)
+- [axios](https://www.npmjs.com/package/axios)
+- [storybook](https://storybook.js.org/docs/react/get-started/install/)
 
 
 

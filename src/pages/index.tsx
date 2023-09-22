@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { Box, Button, TextInput, Text, ActionList } from "@primer/react"
 import { MarkGithubIcon } from '@primer/octicons-react'
+import indexStyles from "../styles/index.module.css";
 
 
 export default function Home() {
@@ -65,8 +66,8 @@ export default function Home() {
           <Button block variant='primary' onClick={handleRepositoriesPageNavigation} sx={{ mt: 3 }}>View Repositories</Button>
 
         </Box>
-        <a href='https://github.com/timothymaxwellsummers/mvst-challenge' target="_blank" style={{ textDecoration: "none" }}>
-          <Button size='large' sx={{ width: ["90%", "80%", "350px", "400px"], mt: 3, }} leadingIcon={MarkGithubIcon}>Find this project on GitHub</Button>
+        <a href='https://github.com/timothymaxwellsummers/mvst-challenge' target="_blank" className={indexStyles.buttonWidth}>
+          <Button size='large' sx={{ minWidth: "100%", mt: 3, }} leadingIcon={MarkGithubIcon}>Find this project on GitHub</Button>
         </a>
       </Box>
     </Box>

@@ -19,7 +19,6 @@ export default function Repositories() {
   useEffect(() => {
     // Fetch GitHub data when the page loads
     if (gitHubId) {
-      console.log("client", gitHubId);
       getGitHubData();
     }
   }, [gitHubId]);
@@ -33,7 +32,6 @@ export default function Repositories() {
       if (res.ok) {
         // If the response is successful, parse JSON and set data
         const githubData = await res.json();
-        console.log("client", githubData);
         setGitHubData(githubData);
         setError(null); // Clear any previous error
       } else {

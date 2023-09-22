@@ -1,0 +1,23 @@
+.buttonWidth {
+    text-decoration: none;
+    width: 400px;
+}
+
+@media only screen and (max-width: 1011px) {
+    .buttonWidth {  
+        width: 350px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .buttonWidth {  
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 543px) {
+    .buttonWidth {  
+        width: 90%;
+    }
+}
+

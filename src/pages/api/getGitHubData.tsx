@@ -50,7 +50,6 @@ const getGitHubData = async (req: NextApiRequest, res: NextApiResponse) => {
         }
 
         // Send the profile data as a JSON response
-        console.log("server", githubData);
         res.status(200).json(githubData);
     } catch (error) {
         // Handle errors gracefully :P
