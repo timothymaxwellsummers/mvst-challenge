@@ -1,15 +1,16 @@
 import React from 'react';
 import ProfileComponent from '../components/profileComponent';
+import { Profile } from '../components/types';
 
 export default {
   title: 'ProfileComponent',
   component: ProfileComponent,
 };
 
-const Template = (args: any) => <ProfileComponent {...args} />;
+const Template: React.FC<{ profile: Profile }> = (args) => <ProfileComponent {...args} />;
 
 export const Default = Template.bind({});
-Default.args = {
+(Default as any).args = {
   profile: {
     username: 'sampleuser',
     name: 'Sample User',
@@ -26,8 +27,9 @@ Default.args = {
   },
 };
 
+// Define similar stories for MinimalInfo and NoBio
 export const MinimalInfo = Template.bind({});
-MinimalInfo.args = {
+(MinimalInfo as any).args = {
   profile: {
     username: 'minimaluser',
     name: null,
@@ -45,7 +47,7 @@ MinimalInfo.args = {
 };
 
 export const NoBio = Template.bind({});
-NoBio.args = {
+(NoBio as any).args = {
   profile: {
     username: 'nobiouser',
     name: 'No Bio User',

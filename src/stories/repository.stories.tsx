@@ -9,7 +9,7 @@ export default {
 const Template = (args: any) => <RepositoryComponent {...args} />;
 
 export const Default = Template.bind({});
-Default.args = {
+(Default as any).args = {
   repository: {
     name: 'Sample Repository',
     description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam',
@@ -20,7 +20,7 @@ Default.args = {
 };
 
 export const MinimalInfo = Template.bind({});
-MinimalInfo.args = {
+(MinimalInfo as any).args = {
   repository: {
     name: 'MinimalInfo',
     description: null,
@@ -31,7 +31,7 @@ MinimalInfo.args = {
 };
 
 export const LongText = Template.bind({});
-LongText.args = {
+(LongText as any).args = {
   repository: {
     name: 'Super Long Repository Name That Should Be Shorter',
     description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore',

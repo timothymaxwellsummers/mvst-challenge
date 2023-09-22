@@ -62,14 +62,21 @@ export default function Repositories() {
           <Navigation repos={gitHubData.profile.repos} />
           <Box sx={{ display: 'flex', gap: ['24px', '24px', '24px'], px: [3, 3, 5, 5], pt: 2, pb: 5, flexDirection: ["column", "column", "row", "row"], maxWidth: '1280px', margin: '0 auto', }}>
             <Box sx={{ pt: 5, minWidth: ['100%', '100%', '256px', '296px'] }} width={['220px', '256px', '296px']}>
-              {gitHubData &&
                 // Render the profile component with fetched data
                 <ProfileComponent profile={gitHubData.profile} />
-              }
             </Box>
             <Box sx={{ flexGrow: 1 }}>
               <Box sx={{ display: 'flex', gap: ['4px', '4px', '4px'], pt: 3, pb: 2, flexDirection: ["column", "column", "row", "row"] }}>
-                <TextInput aria-label="Search" name="search" placeholder="Find a repository..." value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} sx={{ mr: [0, 0, 3, 3] }} width="100%" />
+                <TextInput 
+                aria-label="Search" 
+                name="search" 
+                placeholder="Find a repository..." 
+                value={searchQuery} 
+                onChange={(e) => setSearchQuery(e.target.value)} 
+                sx={{ mr: [0, 0, 3, 3] }}
+                 width="100%" 
+                 />
+
                 <Box sx={{ display: 'flex', gap: ['4px', '4px', '4px'], mt: [1, 1, 0, 0] }}>
                   <Button trailingIcon={TriangleDownIcon}>
                     Type
@@ -81,6 +88,7 @@ export default function Repositories() {
                     Sort
                   </Button>
                 </Box>
+
               </Box>
               <ActionList.Divider />
               {gitHubData.repositories.length === 0 && (

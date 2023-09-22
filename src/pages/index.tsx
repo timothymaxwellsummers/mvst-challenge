@@ -31,20 +31,43 @@ export default function Home() {
       <Box display="flex" flexDirection="column" alignItems="center" pt={8}>
         <span style={{ color: "#000000" }}><MarkGithubIcon size={48} /></span>
         <Text fontSize={"1.5em"} fontWeight={300} color="#333" mt={5}>Hey there 👋</Text>
-        <Box borderWidth="1px" borderStyle="solid" borderColor="border.default" borderRadius={2} backgroundColor="#fff" width={["90%", "80%", "350px", "400px"]} mt={5} sx={{ boxSizing: "border-box", padding: "20px" }}>
+        <Box
+          borderWidth="1px"
+          borderStyle="solid"
+          borderColor="border.default"
+          borderRadius={2}
+          backgroundColor="#fff"
+          width={["90%", "80%", "350px", "400px"]}
+          mt={5}
+          sx={{ boxSizing: "border-box", padding: "20px" }}
+        >
+
           <Text >Welcome to my interpretation of the mvst coding challenge! Start by entering a GitHub username or choose one of the presets.</Text>
+
           <Text as="p" fontWeight="bold" mt={3}>Enter a username</Text>
-          <TextInput aria-label="Search" name="search" value={gitHubId} onChange={handleGitHubIdChange} width="100%" sx={{ mt: 2 }} placeholder={emptyAlert ? "Enter username here!" : ""} validationStatus={emptyAlert ? "error" : undefined}/>
+          <TextInput
+            aria-label="Search"
+            name="search"
+            value={gitHubId}
+            onChange={handleGitHubIdChange}
+            width="100%" sx={{ mt: 2 }}
+            placeholder={emptyAlert ? "Enter username here!" : ""}
+            validationStatus={emptyAlert ? "error" : undefined}
+          />
+          
           <Text as="p" fontWeight="bold" mt={3}>Or choose a preset</Text>
           <Box sx={{ display: 'flex', gap: ['4px', '4px', '4px'], mb: 3, mt: 2 }}>
-            <Button onClick={() => { setGitHubId('leerob'); router.push(`/repositories/leerob`); }} sx={{ boxSizing: "border-box", width:"100%" }}>leerob</Button>
-            <Button onClick={() => {setGitHubId('octocat'); router.push(`/repositories/octocat`)}} sx={{ boxSizing: "border-box", width:"100%" }}>octocat</Button>
-            <Button onClick={() => {setGitHubId('mvstgmbh'); router.push(`/repositories/mvstgmbh`)}} sx={{ boxSizing: "border-box", width:"100%" }}>mvst</Button>
+            <Button onClick={() => { setGitHubId('leerob'); router.push(`/repositories/leerob`); }} sx={{ boxSizing: "border-box", width: "100%" }}>leerob</Button>
+            <Button onClick={() => { setGitHubId('octocat'); router.push(`/repositories/octocat`) }} sx={{ boxSizing: "border-box", width: "100%" }}>octocat</Button>
+            <Button onClick={() => { setGitHubId('mvstgmbh'); router.push(`/repositories/mvstgmbh`) }} sx={{ boxSizing: "border-box", width: "100%" }}>mvst</Button>
           </Box>
           <ActionList.Divider />
           <Button block variant='primary' onClick={handleRepositoriesPageNavigation} sx={{ mt: 3 }}>View Repositories</Button>
+
         </Box>
-        <a href='https://github.com/timothymaxwellsummers/mvst-challenge' target="_blank" style={{textDecoration: "none"}}><Button size='large' sx={{ width: ["90%", "80%", "350px", "400px"], mt: 3, }} leadingIcon={MarkGithubIcon}>Find this project on GitHub</Button></a>
+        <a href='https://github.com/timothymaxwellsummers/mvst-challenge' target="_blank" style={{ textDecoration: "none" }}>
+          <Button size='large' sx={{ width: ["90%", "80%", "350px", "400px"], mt: 3, }} leadingIcon={MarkGithubIcon}>Find this project on GitHub</Button>
+        </a>
       </Box>
     </Box>
   )
