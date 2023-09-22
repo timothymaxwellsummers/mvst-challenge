@@ -1,19 +1,19 @@
-import { Box, Button, TextInput, ActionList, Heading } from "@primer/react"
-import { TriangleDownIcon } from '@primer/octicons-react'
+import React, { useState, useEffect, ChangeEvent } from 'react';
+import { Box, Button, TextInput, ActionList, Heading } from "@primer/react";
+import { TriangleDownIcon } from '@primer/octicons-react';
 import indexStyles from "../../styles/index.module.css";
-import RepositoryComponent from "../../components/repository"
-import Navigation from "../../components/profileNavigation"
+import RepositoryComponent from "../../components/repository";
+import Navigation from "../../components/profileNavigation";
 import ProfileComponent from "../../components/profileComponent";
-import ErrorComponent from "../..//components/error";
-import { useState, useEffect } from 'react';
+import ErrorComponent from "../../components/error";
 import { GitHubData } from '../../components/types';
 import { useRouter } from 'next/router';
 
 export default function Repositories() {
-  const router = useRouter()
+  const router = useRouter();
   const { gitHubId } = router.query;
-  const [gitHubData, setGitHubData] = useState<GitHubData>();
-  const [searchQuery, setSearchQuery] = useState('');
+  const [gitHubData, setGitHubData] = useState<GitHubData | null>(null);
+  const [searchQuery, setSearchQuery] = useState<string>('');
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -55,27 +55,29 @@ export default function Repositories() {
   return (
     <>
       {error ? (
-        // Display an error component if there's an error
-        <ErrorComponent error={error} />
+        <>
+          {/* Display an error component if there's an error*/}
+          <ErrorComponent error={error} />
+        </>
       ) : gitHubData?.profile && gitHubData?.repositories && (
         <>
           <Navigation repos={gitHubData.profile.repos} />
           <Box sx={{ display: 'flex', gap: ['24px', '24px', '24px'], px: [3, 3, 5, 5], pt: 2, pb: 5, flexDirection: ["column", "column", "row", "row"], maxWidth: '1280px', margin: '0 auto', }}>
             <Box sx={{ pt: 5, minWidth: ['100%', '100%', '256px', '296px'] }} width={['220px', '256px', '296px']}>
-                // Render the profile component with fetched data
-                <ProfileComponent profile={gitHubData.profile} />
+              {/* Render the profile component with fetched data */}
+              <ProfileComponent profile={gitHubData.profile} />
             </Box>
             <Box sx={{ flexGrow: 1 }}>
               <Box sx={{ display: 'flex', gap: ['4px', '4px', '4px'], pt: 3, pb: 2, flexDirection: ["column", "column", "row", "row"] }}>
-                <TextInput 
-                aria-label="Search" 
-                name="search" 
-                placeholder="Find a repository..." 
-                value={searchQuery} 
-                onChange={(e) => setSearchQuery(e.target.value)} 
-                sx={{ mr: [0, 0, 3, 3] }}
-                 width="100%" 
-                 />
+                <TextInput
+                  aria-label="Search"
+                  name="search"
+                  placeholder="Find a repository..."
+                  value={searchQuery}
+                  onChange={(e: ChangeEvent<HTMLInputElement>) => setSearchQuery(e.target.value)}
+                  sx={{ mr: [0, 0, 3, 3] }}
+                  width="100%"
+                />
 
                 <Box sx={{ display: 'flex', gap: ['4px', '4px', '4px'], mt: [1, 1, 0, 0] }}>
                   <Button trailingIcon={TriangleDownIcon}>
@@ -93,8 +95,8 @@ export default function Repositories() {
               <ActionList.Divider />
               {gitHubData.repositories.length === 0 && (
                 <>
-                {/* Display a message if there are no repositories*/}
-                <Heading sx={{fontSize: "1.5em"}}>{gitHubData.profile.name} does&apos;t have any public repositories yet.</Heading>
+                  {/* Display a message if there are no repositories*/}
+                  <Heading sx={{ fontSize: "1.5em" }}>{gitHubData.profile.name} does&apos;t have any public repositories yet.</Heading>
                 </>
               )}
               {filteredRepositories.map((repository, index) => (
@@ -109,5 +111,5 @@ export default function Repositories() {
         </>
       )}
     </>
-  )
+  );
 }
