@@ -4,7 +4,7 @@ The challenge was to replicate GitHub's repository list section. Checkout my imp
 
 ## Description
 
-I thought it would be a fun challenge to get it as close to github itself as possible. So i utilized GitHub's react/primer library to use their components. This resulted in a pretty excat clone. Other than that I utilized all their REST Api to fetch all available data. I added the option to add a custom GitHub username to make it a bit more interactive. Heres a list of the achieved objectives:
+I thought it would be a fun challenge to get it as close to GitHub itself as possible. So, I utilized GitHub's react/primer library to use their components. This resulted in a pretty exact clone. Other than that, I utilized all their REST API to fetch all available data. I added the option to add a custom GitHub username to make it a bit more interactive. Here's a list of the achieved objectives:
 
 - ✅ Used React and Typescript
 - ✅ display searchable list of repositories
@@ -49,6 +49,7 @@ Start the storybook server
 ## Future Improvements
 
 - There is some data that the api doesn't provide -> could be scraped and added
+- Add Language Filters and sorting options to the list
 - Bug fixes 🐛
 - Implement GitHub itself ... haha ;)
 
