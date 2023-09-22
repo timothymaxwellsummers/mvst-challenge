@@ -21,6 +21,7 @@ export default function RepositoryComponent({ repository }: { repository: Reposi
         <>
             <Box sx={{ display: 'flex', gap: ['24px', '24px', '24px'], py: 3, alignItems: "center" }}>
                 <Box sx={{ flexGrow: 1 }}>
+                    {/* Repository Name */}
                     <Link href="https://github.com" sx={{ fontSize: "1.25em", fontWeight: 500 }}>
                         {repository.name} <Label sx={{ ml: 2, color: '#6e7781', position: "relative", top: "-3px" }}>Public</Label>
                     </Link>
@@ -28,6 +29,7 @@ export default function RepositoryComponent({ repository }: { repository: Reposi
                         <Text sx={{ color: '#646d76', fontSize: "0.875em", fontWeight: 400, lineHeight: "1.5" }}>{repository.description}</Text>
                     </div>
                     
+                    {/* Repository tags */}
                     <div className={repoStyles.tagsWrapper}>
                         {getColorCircle(languageColors[repository.language!]?.color || null)}
                         {repository.language &&
@@ -47,6 +49,7 @@ export default function RepositoryComponent({ repository }: { repository: Reposi
 
                 </Box>
                 <Box sx={{}} width={['150px', '150px', '150px']}>
+                    {/* Star Button */}
                     <ButtonGroup sx={{ float: 'right' }}>
                         <Button sx={{ minWidth: "75px" }} size="small" leadingIcon={StarIcon}> &nbsp;&nbsp;Star </Button>
                         <IconButton sx={{ minWidth: "35px", color: '#646d76' }} size="small" aria-label="Drop down" icon={TriangleDownIcon} />

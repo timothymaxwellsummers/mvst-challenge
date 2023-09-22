@@ -12,6 +12,7 @@ I thought it would be a fun challenge to get it as close to github itself as pos
 - ✅ Responsive UI
 - ✅ Deployed with [Vercel](https://mvst-challenge-one.vercel.app/)
 - ✅ Documented code
+- ✅ Used storybook fort UI testing
 
 ## Run Locally
 

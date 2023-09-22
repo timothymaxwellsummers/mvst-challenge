@@ -92,8 +92,10 @@ export default function Repositories() {
               </Box>
               <ActionList.Divider />
               {gitHubData.repositories.length === 0 && (
-                // Display a message if there are no repositories
+                <>
+                {/* Display a message if there are no repositories*/}
                 <Heading sx={{fontSize: "1.5em"}}>{gitHubData.profile.name} does&apos;t have any public repositories yet.</Heading>
+                </>
               )}
               {filteredRepositories.map((repository, index) => (
                 <div className={indexStyles.element} key={index}>

@@ -21,6 +21,7 @@ export default function ProfileComponent({ profile }: { profile: Profile }) {
   return (
     <>
       <Box sx={{ display: 'flex', flexDirection: ["row", "row", "column", "column"], alignItems: ["center", "center", "flex-start", "flex-start"], gap: ['4px', '4px', '12px', '12px'] }}>
+      {/* Profile Image and Name */}
         <div className={profileStyles.imageWrapper}>
           <img src={profile.avatarUrl!} alt="profilePicMock" className={profileStyles.profileImage} />
         </div>
@@ -34,6 +35,7 @@ export default function ProfileComponent({ profile }: { profile: Profile }) {
         Follow
       </Button>
 
+      {/* Profile Info */}
       {profile.bio && <Text as="p" sx={{ fontSize: "1em", fontWeight: 400, lineHeight: "1.5em", pb: 3 }}>{profile.bio}</Text>}
       <Text as="p" sx={{ color: '#6e7781', fontSize: "0.875em", fontWeight: 400, lineHeight: "1.5em", mb: 5 }}><PeopleIcon size={16} /> <Text sx={{ color: '#000000', fontWeight: 600 }}>{profile.followers}</Text> followers · <Text sx={{ color: '#000000', fontWeight: 600 }}>{profile.following}</Text> following</Text>
       {profile.company && <Text as="p" sx={{ fontSize: "0.875em", fontWeight: 400, lineHeight: "1.5em", pb: 1 }}><span style={{ color: "#6e7781" }}><OrganizationIcon size={16} /></span> &nbsp;{profile.company}</Text>}
@@ -49,6 +51,7 @@ export default function ProfileComponent({ profile }: { profile: Profile }) {
         </Text>
       )}
       <ActionList.Divider />
+      {/* Back to home button */}
       <Button block variant='primary' onClick={handleTryAgainClick} sx={{ mt: 3 }} leadingIcon={ArrowLeftIcon}>Try a different username</Button>
     </>
   )
