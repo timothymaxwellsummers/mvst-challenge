@@ -26,11 +26,23 @@ Install dependencies with npm
 ```bash
   npm install
 ```
+List of some dependencies:
+- [primer/react] (https://primer.style/react/getting-started)
+- [axios] (https://www.npmjs.com/package/axios)
+- [storybook] (https://storybook.js.org/docs/react/get-started/install/)
 
-Start NextJS dev server
+
+
+Start next.js server
 
 ```bash
   npm run dev
+```
+
+Start the storybook server
+
+```bash
+  npm run storybook
 ```
 
 ## Future Improvements
@@ -38,3 +50,5 @@ Start NextJS dev server
 - There is some data that the api doesn't provide -> could be scraped and added
 - Bug fixes 🐛
 - Implement GitHub itself ... haha ;)
+
+> Btw I really liked the challenge. I used primer/react and storybook for the first time which was a fun and interesting task. 🤓

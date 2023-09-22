@@ -60,7 +60,7 @@ export default function Repositories() {
       ) : gitHubData?.profile && gitHubData?.repositories && (
         <>
           <Navigation repos={gitHubData.profile.repos} />
-          <Box sx={{ display: 'flex', gap: ['24px', '24px', '24px'], px: [3, 3, 5, 5], pt: 2, pb: 5, flexDirection: ["column", "column", "row", "row"] }}>
+          <Box sx={{ display: 'flex', gap: ['24px', '24px', '24px'], px: [3, 3, 5, 5], pt: 2, pb: 5, flexDirection: ["column", "column", "row", "row"], maxWidth: '1280px', margin: '0 auto', }}>
             <Box sx={{ pt: 5, minWidth: ['100%', '100%', '256px', '296px'] }} width={['220px', '256px', '296px']}>
               {gitHubData &&
                 // Render the profile component with fetched data

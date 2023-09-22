@@ -6,7 +6,7 @@ export default {
   component: RepositoryComponent,
 };
 
-const Template = (args: { repository: Repository }) => <RepositoryComponent {...args} />;
+const Template = (args: any) => <RepositoryComponent {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
@@ -16,5 +16,27 @@ Default.args = {
     language: 'JavaScript',
     license: 'MIT License',
     lastUpdated: new Date('2021-08-01T00:00:00Z'),
+  },
+};
+
+export const MinimalInfo = Template.bind({});
+MinimalInfo.args = {
+  repository: {
+    name: 'MinimalInfo',
+    description: null,
+    language: null,
+    license: null,
+    lastUpdated: new Date('2022-01-15T00:00:00Z'),
+  },
+};
+
+export const LongText = Template.bind({});
+LongText.args = {
+  repository: {
+    name: 'Super Long Repository Name That Should Be Shorter',
+    description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore',
+    language: 'JavaScript',
+    license: 'MIT License',
+    lastUpdated: new Date('2022-01-15T00:00:00Z'),
   },
 };
